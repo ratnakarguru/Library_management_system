@@ -1,24 +1,28 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox 
 from datetime import datetime, timedelta
 
 class LibraryManagementSystem:
     def __init__(self, root):
         self.root = root
         self.root.title("Library Management System")
+        self.root.geometry("600x400")
+        
+        # Set a background color
+        self.root.configure(bg="#f0f0f0")
         
         # Login Screen
         self.login_screen()
 
     def login_screen(self):
         self.clear_frame()
-        tk.Label(self.root, text="Library Management System", font=("Arial", 20)).pack(pady=20)
+        tk.Label(self.root, text="Library Management System", font=("Arial", 20), bg="#f0f0f0").pack(pady=20)
         
-        tk.Label(self.root, text="Username").pack(pady=5)
+        tk.Label(self.root, text="Username", bg="#f0f0f0").pack(pady=5)
         self.username_entry = tk.Entry(self.root)
         self.username_entry.pack(pady=5)
         
-        tk.Label(self.root, text="Password").pack(pady=5)
+        tk.Label(self.root, text="Password", bg="#f0f0f0").pack(pady=5)
         self.password_entry = tk.Entry(self.root, show="*")
         self.password_entry.pack(pady=5)
         
@@ -42,7 +46,7 @@ class LibraryManagementSystem:
 
     def main_menu(self):
         self.clear_frame()
-        tk.Label(self.root, text="Library Management System", font=("Arial", 20)).pack(pady=20)
+        tk.Label(self.root, text="Library Management System", font=("Arial", 20), bg="#f0f0f0").pack(pady=20)
         
         if self.user_role == "admin":
             tk.Button(self.root, text="Add Book", command=self.add_book).pack(pady=10)
@@ -60,7 +64,7 @@ class LibraryManagementSystem:
 
     def add_book(self):
         self.clear_frame()
-        tk.Label(self.root, text="Add Book", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="Add Book", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.book_name = tk.Entry(self.root)
         self.book_name.pack(pady=5)
@@ -71,8 +75,8 @@ class LibraryManagementSystem:
         self.author_name.insert(0, "Author Name (required)")
         
         self.book_type = tk.StringVar(value="book")
-        tk.Radiobutton(self.root, text="Book", variable=self.book_type, value="book").pack()
-        tk.Radiobutton(self.root, text="Movie", variable=self.book_type, value="movie").pack()
+        tk.Radiobutton(self.root, text="Book", variable=self.book_type, value="book", bg="#f0f0f0").pack()
+        tk.Radiobutton(self.root, text="Movie", variable=self.book_type, value="movie", bg="#f0f0f0").pack()
         
         tk.Button(self.root, text="Submit", command=self.submit_add_book).pack(pady=10)
         tk.Button(self.root, text="Back", command=self.main_menu).pack(pady=10)
@@ -87,7 +91,7 @@ class LibraryManagementSystem:
 
     def issue_book(self):
         self.clear_frame()
-        tk.Label(self.root, text="Issue Book", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="Issue Book", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.issue_book_name = tk.Entry(self.root)
         self.issue_book_name.pack(pady=5)
@@ -111,7 +115,7 @@ class LibraryManagementSystem:
 
     def return_book(self):
         self.clear_frame()
-        tk.Label(self.root, text="Return Book", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="Return Book", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.return_book_name = tk.Entry(self.root)
         self.return_book_name.pack(pady=5)
@@ -135,12 +139,12 @@ class LibraryManagementSystem:
 
     def add_membership(self):
         self.clear_frame()
-        tk.Label(self.root, text="Add Membership", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="Add Membership", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.membership_duration = tk.StringVar(value="6 months")
-        tk.Radiobutton(self.root, text="6 Months", variable=self.membership_duration, value="6 months").pack()
-        tk.Radiobutton(self.root, text="1 Year", variable=self.membership_duration, value="1 year").pack()
-        tk.Radiobutton(self.root, text="2 Years", variable=self.membership_duration, value="2 years").pack()
+        tk.Radiobutton(self.root, text="6 Months", variable=self.membership_duration, value="6 months", bg="#f0f0f0").pack()
+        tk.Radiobutton(self.root, text="1 Year", variable=self.membership_duration, value="1 year", bg="#f0f0f0").pack()
+        tk.Radiobutton(self.root, text="2 Years", variable=self.membership_duration, value="2 years", bg="#f0f0f0").pack()
         
         tk.Button(self.root, text="Submit", command=self.submit_add_membership).pack(pady=10)
         tk.Button(self.root, text="Back", command=self.main_menu).pack(pady=10)
@@ -152,7 +156,7 @@ class LibraryManagementSystem:
 
     def update_membership(self):
         self.clear_frame()
-        tk.Label(self.root, text="Update Membership", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="Update Membership", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.membership_number = tk.Entry(self.root)
         self.membership_number.pack(pady=5)
@@ -171,11 +175,11 @@ class LibraryManagementSystem:
 
     def user_management(self):
         self.clear_frame()
-        tk.Label(self.root, text="User Management", font=("Arial", 16)).pack(pady=10)
+        tk.Label(self.root, text="User Management", font=("Arial", 16), bg="#f0f0f0").pack(pady=10)
         
         self.user_type = tk.StringVar(value="new")
-        tk.Radiobutton(self.root, text="New User", variable=self.user_type, value="new").pack()
-        tk.Radiobutton(self.root, text="Existing User", variable=self.user_type, value="existing").pack()
+        tk.Radiobutton(self.root, text="New User", variable=self.user_type, value="new", bg="#f0f0f0").pack()
+        tk.Radiobutton(self.root, text="Existing User", variable=self.user_type, value="existing", bg="#f0f0f0").pack()
         
         self.user_name = tk.Entry(self.root)
         self.user_name.pack(pady=5)
